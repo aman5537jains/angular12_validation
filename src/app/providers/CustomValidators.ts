@@ -28,7 +28,9 @@ export class CustomValidators {
       if (matchingControl.errors && !matchingControl.errors.mustMatch) {
         return;
       }
-
+      if(!matchingControl.value){
+        return null;
+      }
       // set error on matchingControl if validation fails
       if (control.value !== matchingControl.value) {
         matchingControl.setErrors({ mustMatch: true });
